@@ -14,7 +14,7 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import backend as K
 from models import load_real_samples, define_discriminator, define_reconstruction, define_gan
-from config import TRAIN_FILEPATH, VALID_FILEPATH, SAVE_PATH, IMAGE_SHAPE, TRAINING_EPOCH, NUMBER_BATCH
+from config import TRAIN_FILEPATH, VALID_FILEPATH, SAVE_PATH, SEED, IMAGE_SHAPE, TRAINING_EPOCH, NUMBER_BATCH
 
 random.seed(SEED)
 np.random.seed(SEED)
