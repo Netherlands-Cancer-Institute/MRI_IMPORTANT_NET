@@ -1,20 +1,7 @@
 import os
-from models import define_discriminator, define_reconstruction, define_gan
+from models import load_real_samples, define_discriminator, define_reconstruction, define_gan
 from config import TRAIN_FILEPATH, VALID_FILEPATH, SAVE_PATH, IMAGE_SHAPE, TRAINING_EPOCH, NUMBER_BATCH
-
-# load and prepare training images
-def load_real_samples(filename):
-    # load compressed arrays
-    data = load(filename)
-    # unpack arrays
-    X11, X12, X13, X2 = data['arr_0'], data['arr_1'], data['arr_2'], data['arr_3']
-    # scale to [-1,1]
-    X11 = (X11 - (3000 / 2)) / (3000 / 2)
-    X12 = (X12 - (3000 / 2)) / (3000 / 2)
-    X13 = (X13 - (3000 / 2)) / (3000 / 2)
-    X2 = (X2 - (3000 / 2)) / (3000 / 2)
-    return [X11, X12, X13, X2]
-
+	
 filepath=TRAIN_FILEPATH
 files=os.listdir(filepath)
 files.sort()
