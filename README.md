@@ -14,11 +14,11 @@ Integrated MRI Multi-Parameter Reinforcement Fusion Generator with Attention Net
 * IMPORTANT-Net
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/IMPORTANT-Net.png)
 
-* Multi-parameter attention
+* Multi-parameter fusion with attention (MPFA)
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Multi-parameter_attention.png)
 
 * Hierarchical reinforcement generation module
-![image]()
+![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Hierarchical_reinforcement_generation_module.png)
 
 ### Visualization
 * Breast (axial)
