@@ -183,4 +183,5 @@ g_model = define_reconstruction(image_shape)
 gan_model = define_gan(g_model, d_model, image_shape)
 
 # train model
-train(d_model, g_model, gan_model, files)
+if __name__ == '__main__':
+	train(d_model, g_model, gan_model, files)
