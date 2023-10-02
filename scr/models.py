@@ -4,7 +4,7 @@ from tensorflow.keras.initializers import RandomNormal
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Maximum, Add, Input, Multiply, Subtract, Conv2D, Conv2DTranspose, UpSampling2D, concatenate, MaxPooling2D, Lambda, Reshape, LeakyReLU, BatchNormalization, Dense, Dropout, Activation
 from numpy import load
-
+from config import LOSSES_WEIGHTS
 from attention import parameter_attention
 from fusion import MixedFusion_block_d, MixedFusion_block_u, MixedFusion_block_0
 from losses import perceptual_loss
@@ -289,5 +289,5 @@ def define_gan(g_model, d_model, image_shape):
 	dis_out = d_model([in_src1, in_src2, in_src3, gen_out])
 	model = Model([in_src1, in_src2, in_src3], [dis_out, out_src1, out_src2, out_src3, gen_out, gen_out]) 
 	opt = Adam(lr=0.0002, beta_1=0.5)
-	model.compile(loss=['binary_crossentropy', 'mae', 'mae', 'mae', 'mae', perceptual_loss], optimizer=opt, loss_weights=[5,25,25,25,100,200])
+	model.compile(loss=['binary_crossentropy', 'mae', 'mae', 'mae', 'mae', perceptual_loss], optimizer=opt, loss_weights=LOSSES_WEIGHTS)
 	return model
