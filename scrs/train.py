@@ -1,6 +1,7 @@
 import os
 from numpy import load, zeros, ones
 import numpy as np
+import random
 from numpy.random import randint
 import pandas as pd
 import matplotlib
@@ -10,9 +11,14 @@ from skimage.metrics import peak_signal_noise_ratio
 from skimage.metrics import structural_similarity
 from skimage.metrics import mean_squared_error
 from PIL import Image
+import tensorflow as tf
 from tensorflow.keras import backend as K
 from models import load_real_samples, define_discriminator, define_reconstruction, define_gan
 from config import TRAIN_FILEPATH, VALID_FILEPATH, SAVE_PATH, IMAGE_SHAPE, TRAINING_EPOCH, NUMBER_BATCH
+
+random.seed(SEED)
+np.random.seed(SEED)
+tf.random.set_seed(SEED)
 	
 filepath=TRAIN_FILEPATH
 files=os.listdir(filepath)
