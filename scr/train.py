@@ -1,4 +1,16 @@
 import os
+from numpy import load, zeros, ones
+import numpy as np
+from numpy.random import randint
+import pandas as pd
+import matplotlib
+matplotlib.use('agg')
+from matplotlib import pyplot
+from skimage.metrics import peak_signal_noise_ratio
+from skimage.metrics import structural_similarity
+from skimage.metrics import mean_squared_error
+from PIL import Image
+from tensorflow.keras import backend as K
 from models import load_real_samples, define_discriminator, define_reconstruction, define_gan
 from config import TRAIN_FILEPATH, VALID_FILEPATH, SAVE_PATH, IMAGE_SHAPE, TRAINING_EPOCH, NUMBER_BATCH
 	
@@ -12,19 +24,13 @@ def generate_real(files, n_samples, patch_shape1, patch_shape2, bat_per_epo, i):
 	n = int((i)/bat_per_epo)
 	name=files[(i-n*bat_per_epo)]
 	path = filepath + name
-	print(path)
 	data=load_real_samples(path)
 	X1, X2, X3, X= data
-
 	# generate 'real' class labels (1)
 	y = ones((n_samples, patch_shape1, patch_shape2, 1))
 	return [X1, X2, X3, X], y
 
 def generate_real_test(n_samples, patch_shape1, patch_shape2):
-
-	# retrieve selected images
-	#n = int((i)/bat_per_epo)
-	#name=files[(i-n*bat_per_epo)]
 	path = VALID_FILEPATH
 	print(path)
 	data=load_real_samples(path)
@@ -38,7 +44,6 @@ def generate_real_show(files, n_samples, patch_shape1, patch_shape2, bat_per_epo
     n = int((i)/bat_per_epo)
     name=files[(i-n*bat_per_epo)]
     path = filepath + name
-    print(path)
     data=load_real_samples(path)
     X1, X2, X3, X= data
     ix = randint(0, X.shape[0], n_samples)
@@ -47,7 +52,7 @@ def generate_real_show(files, n_samples, patch_shape1, patch_shape2, bat_per_epo
     y = ones((n_samples, patch_shape1, patch_shape2, 1))
     return [X11, X12, X13, X22], y
 
-def generate_fake_samples(g_model, samples1, samples2, samples3, patch_shape1, patch_shape2):  # !!!
+def generate_fake_samples(g_model, samples1, samples2, samples3, patch_shape1, patch_shape2):
     # generate fake instance
     _, _, _, X = g_model.predict([samples1, samples2, samples3])  # !!!
     # create 'fake' class labels (0)
@@ -59,7 +64,7 @@ def summarize_performance(step, g_model, files, bat_per_epo, n_samples=6):
     # select a sample of input images
     [X_realA1, X_realA2, X_realA3, X_realB], _ = generate_real_show(files, n_samples, 1, 1, bat_per_epo, step)
     # generate a batch of fake samples
-    X_fakeB, _ = generate_fake_samples(g_model, X_realA1, X_realA2, X_realA3, 1, 1)  # !!!
+    X_fakeB, _ = generate_fake_samples(g_model, X_realA1, X_realA2, X_realA3, 1, 1)
     # scale all pixels from [-1,1] to [0,1]
     X_realA1 = (X_realA1 + 1) / 2.0
     X_realA2 = (X_realA2 + 1) / 2.0
@@ -169,10 +174,13 @@ def train(d_model, g_model, gan_model, files, n_epochs=TRAINING_EPOCH, n_batch=N
     dataframe.to_csv(SAVE_PATH + "indicators.csv", index=False, sep=',')
 
 image_shape = IMAGE_SHAPE
+
 # define the models
 d_model = define_discriminator(image_shape)
 g_model = define_reconstruction(image_shape)
+
 # define the composite model
 gan_model = define_gan(g_model, d_model, image_shape)
+
 # train model
 train(d_model, g_model, gan_model, files)
