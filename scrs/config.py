@@ -11,12 +11,14 @@ SAVE_PATH = "./SAVE_IMPORTANT-NET/"
 
 """"
 Training configurations:
+  :param SEED -> the random seed
   :param IMAGE_SHAPE -> image shape
   :param LOSSES_WEIGHTS -> the weights for losses
   :param TRAINING_EPOCH -> number of training epochs
   :param NUNBER_BATCH  -> specifies the batch size of training process 
 """"
 
+SEED = 1203
 IMAGE_SHAPE = (224, 224, 1)  
 LOSSES_WEIGHTS = [5,25,25,25,100,200]
 TRAINING_EPOCH = 100
