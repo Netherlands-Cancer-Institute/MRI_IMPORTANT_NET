@@ -12,10 +12,12 @@ SAVE_PATH = "./SAVE_IMPORTANT-NET/"
 """"
 Training configurations:
   :param IMAGE_SHAPE -> image shape
+  :param Losses_WEIGHTS -> the weights for losses
   :param TRAINING_EPOCH -> number of training epochs
   :param NUNBER_BATCH  -> specifies the batch size of training process 
 """"
 
 IMAGE_SHAPE = (224, 224, 1)  
+Losses_WEIGHTS = [5,25,25,25,100,200]
 TRAINING_EPOCH = 100
 NUMBER_BATCH = 16 
