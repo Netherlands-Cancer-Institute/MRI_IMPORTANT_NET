@@ -1,6 +1,10 @@
 import tensorflow as tf
+from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.initializers import RandomNormal
+from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Maximum, Add, Input, Multiply, Subtract, Conv2D, Conv2DTranspose, UpSampling2D, concatenate, MaxPooling2D, Lambda, Reshape, LeakyReLU, BatchNormalization, Dense, Dropout, Activation
+from numpy import load
+
 from attention import parameter_attention
 from fusion import MixedFusion_block_d, MixedFusion_block_u, MixedFusion_block_0
 from losses import perceptual_loss
