@@ -14,7 +14,7 @@ Integrated MRI Multi-Parameter Reinforcement Fusion Generator with Attention Net
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/IMPORTANT-Net.png)
 
 ### Multi-parameter attention
-![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Multi-parameter%20attention.png)
+![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Multi-parameter_attention.png)
 
 ### Visualization
 * Axial
