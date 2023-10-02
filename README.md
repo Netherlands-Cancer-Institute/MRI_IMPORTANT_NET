@@ -11,10 +11,14 @@ Integrated MRI Multi-Parameter Reinforcement Fusion Generator with Attention Net
 * scrs/train.py ：Train the IMPARTANT-NET.
 
 ### Model details
+* IMPORTANT-Net
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/IMPORTANT-Net.png)
 
-### Multi-parameter attention
+* Multi-parameter attention
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Multi-parameter_attention.png)
+
+* Hierarchical reinforcement generation module
+![image]()
 
 ### Visualization
 * Breast (axial)
