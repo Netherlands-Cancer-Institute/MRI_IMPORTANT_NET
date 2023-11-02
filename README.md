@@ -30,6 +30,10 @@ Integrated MRI Multi-Parameter Reinforcement Fusion Generator with Attention Net
 * Brain (axial)
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/vis_axial_brain.png)
 
+### Downstream task
+Segmentation results.
+![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Segmentation.png)
+
 ### Contact details
 If you have any questions please contact us. 
 
