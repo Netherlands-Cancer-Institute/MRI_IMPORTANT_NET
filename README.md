@@ -21,7 +21,7 @@ Integrated MRI Multi-Parametric Increment Fusion Generator with Attention Networ
 * Multi-parameter fusion with attention (MPFA)
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Multi-parameter_attention.png)
 
-* Hierarchical reinforcement generation module
+* Hierarchical increment generation module
 ![image](https://github.com/Netherlands-Cancer-Institute/MRI_IMPORTANT_NET/blob/main/figs/Hierarchical_reinforcement_generation_module.png)
 
 ### Visualization
