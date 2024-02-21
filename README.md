@@ -1,5 +1,5 @@
 # MRI_IMPORTANT_NET
-Integrated MRI Multi-Parameter Increment Fusion Generator with Attention Network for Synthesizing Absent Data
+Integrated MRI Multi-Parametric Increment Fusion Generator with Attention Network for Synthesizing Absent Data
 
 ### Notes: 
 
